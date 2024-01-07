@@ -20,13 +20,13 @@ result = my_cur.fetchall()
 
 data = pd.DataFrame(result, columns=['States/UTs', 'AREA', 'Educated Women(%)','Employed Women(%)','Total Fertility Rate (number of children per woman)','Early Marriage Rate', 'Motherhood Rate'])
 x_axis_selection = st.sidebar.selectbox('Select X-Axis for relation between education/employment and fertility', ['Educated Women(%)','Employed Women(%)'])
-selected_state = st.sidebar.selectbox('Select State', data['States/UTs'].unique())
+selected_state = st.sidebar.multiselect('Select State', data['States/UTs'].unique())
 
 # Filter the data based on the selected state
-filtered_data = data[data['States/UTs'] == selected_state]
+#filtered_data = data[data['States/UTs'] == selected_state]
 
 # Filter data based on selected states
-#filtered_data = data[data['States/UTs'].isin(selected_states)]
+filtered_data = data[data['States/UTs'].isin(selected_states)]
 
 
 # Streamlit app
