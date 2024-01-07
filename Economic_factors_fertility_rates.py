@@ -40,28 +40,9 @@ fig = px.scatter(
 # Customize the layout
 fig.update_layout(showlegend=True)
 
-#Early Marriage and Motherhood Data Analysis
-st.text('Early Marriage and Motherhood Data Analysis')
-
-# Filter data based on user selection
-filtered_data = data[(data['States/UTs'] == selected_state) & (data['AREA'] == selected_area)]
-
-# Bar Chart for Early Marriage Rate
-st.subheader('Early Marriage Rate')
-fig_marriage = px.bar(filtered_data, x='States/UTs', y='Women age 20-24 years married before age 18 years (%)', text='Women age 20-24 years married before age 18 years (%)')
-st.plotly_chart(fig_marriage)
-
-# Bar Chart for Motherhood Rate
-st.subheader('Motherhood Rate')
-fig_motherhood = px.bar(filtered_data, x='States/UTs', y='Women age 15-19 years who were already mothers or pregnant at the time of the survey (%)', text='Women age 15-19 years who were already mothers or pregnant at the time of the survey (%)')
-st.plotly_chart(fig_motherhood)
-
-st.subheader('Education Level vs Early Marriage/Motherhood')
-fig_education = px.bar(filtered_data, x='States/UTs', y=['Women age 20-24 years married before age 18 years (%)', 'Women age 15-19 years who were already mothers or pregnant at the time of the survey (%)'], text=['Women age 20-24 years married before age 18 years (%)', 'Women age 15-19 years who were already mothers or pregnant at the time of the survey (%)'])
-
 
 # Show the plot in the Streamlit app
 st.plotly_chart(fig)
-st.plotly_chart(fig_education)
+#st.plotly_chart(fig_education)
 # Close the Snowflake connection
 my_cnx.close()
