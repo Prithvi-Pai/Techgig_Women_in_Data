@@ -28,7 +28,7 @@ filtered_data = data[data['States/UTs'] == selected_state]
  
 
 # Streamlit app
-st.text('Relationship between Education and Fertility')
+#st.text('Relationship between Education and Fertility')
 
 # Create a scatter plot to visualize the inverse relationship
 
@@ -45,7 +45,7 @@ fig = px.scatter(
 fig.update_layout(showlegend=True)
 
 # Create a bar chart for Early Marriage Rate vs Motherhood Rate
-st.text('Education Level vs Early Marriage/Motherhood')
+#st.text('Education Level vs Early Marriage/Motherhood')
 
 fig_grouped_bar = px.bar(
     filtered_data.melt(id_vars=['States/UTs', 'AREA'], value_vars=['Educated Women(%)', 'Early Marriage Rate', 'Motherhood Rate']),
