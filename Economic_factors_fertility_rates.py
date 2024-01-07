@@ -16,9 +16,9 @@ my_cur = my_cnx.cursor()
 my_cur.execute('select "States/UTs" ,AREA , "Women (age 15-49)  with 10 or more years of schooling (%)" ,"Total Fertility Rate (number of children per woman)" from WOMEN_IN_DATA.HYPOTHESIS_1.NHFS ')
 
 result = my_cur.fetchall()
-result_cleaned = result.dropna()
+
 # data = streamlit.dataframe(result, columns=['"States/UTs"', 'AREA', '"Women (age 15-49)  with 10 or more years of schooling (%)"','"Total Fertility Rate (number of children per woman)"'])
-data = streamlit.dataframe(result_cleaned)
+data = streamlit.dataframe(result)
  
 
 # Streamlit app
