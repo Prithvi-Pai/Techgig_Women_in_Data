@@ -33,7 +33,7 @@ filtered_data = data[data['States/UTs'] == selected_state]
 # Create a scatter plot to visualize the inverse relationship
 
 fig = px.scatter(
-    filtered_data,
+    data,
     x=x_axis_selection,
     y='Total Fertility Rate (number of children per woman)',
     color='States/UTs',
@@ -48,7 +48,7 @@ fig.update_layout(showlegend=True)
 st.subheader('Education Level vs Early Marriage/Motherhood')
 
 fig_grouped_bar = px.bar(
-    filtered_data.melt(id_vars=['States/UTs', 'AREA'], value_vars=['Educated Women(%)', 'Early Marriage Rate', 'Motherhood Rate']),
+    data.melt(id_vars=['States/UTs', 'AREA'], value_vars=['Educated Women(%)', 'Early Marriage Rate', 'Motherhood Rate']),
     x='States/UTs',
     y='value',
     color='variable',
