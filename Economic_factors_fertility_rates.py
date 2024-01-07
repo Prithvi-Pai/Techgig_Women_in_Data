@@ -14,12 +14,13 @@ my_cur = my_cnx.cursor()
 # st.text(my_data_row)
 
 # Adding code to show relation between education and fertility
-my_cur.execute('select "States/UTs" ,AREA , "Women (age 15-49)  with 10 or more years of schooling (%)"  as "Educated Women","Total Fertility Rate (number of children per woman)" from WOMEN_IN_DATA.HYPOTHESIS_1.NHFS ')
+my_cur.execute('select "States/UTs" ,AREA , "Women (age 15-49)  with 10 or more years of schooling (%)"  as "Educated Women(%)","Women (age 15-49 years) who worked in the last 12 months and were paid in cash (%)" as "Employed Women(%)","Total Fertility Rate (number of children per woman)" from WOMEN_IN_DATA.HYPOTHESIS_1.NHFS ')
 
 result = my_cur.fetchall()
 
-data = pd.DataFrame(result, columns=['"States/UTs"', 'AREA', '"Educated Women"','"Total Fertility Rate (number of children per woman)"'])
+data = pd.DataFrame(result, columns=['"States/UTs"', 'AREA', '"Educated Women(%)"','"Employed Women(%)"','"Total Fertility Rate (number of children per woman)"'])
 #data = st.dataframe(result)
+x_axis_selection = st.sidebar.selectbox('Select X-Axis', ['Education_Level', 'Employment_Level'])
  
 
 # Streamlit app
@@ -29,7 +30,7 @@ st.title('Inverse Relationship between Education and Fertility')
 
 fig = px.scatter(
     data,
-    x='"Educated Women"',
+    x=x_axis_selection,
     y='"Total Fertility Rate (number of children per woman)"',
     color='"States/UTs"',
     facet_col='AREA',  # Facet by 'Area'
