@@ -41,7 +41,7 @@ fig = px.scatter(
 fig.update_layout(showlegend=True)
 
 st.subheader('Education Level vs Early Marriage/Motherhood')
-fig_education = px.bar(filtered_data, x='States/UTs', y=['Early Marriage Rate', 'Motherhood Rate'], text=['Early Marriage Rate', 'Motherhood Rate'])
+fig_education = px.bar(data, x='States/UTs', y=['Early Marriage Rate', 'Motherhood Rate'], text=['Early Marriage Rate', 'Motherhood Rate'])
 
 
 # Show the plot in the Streamlit app
