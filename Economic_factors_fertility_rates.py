@@ -20,7 +20,11 @@ result = my_cur.fetchall()
 
 data = pd.DataFrame(result, columns=['States/UTs', 'AREA', 'Educated Women(%)','Employed Women(%)','Total Fertility Rate (number of children per woman)','Early Marriage Rate', 'Motherhood Rate'])
 #data = st.dataframe(result)
-x_axis_selection = st.sidebar.selectbox('Select X-Axis for relation between education/employment and fertility', ['Educated Women(%)','Employed Women(%)'],)
+x_axis_selection = st.sidebar.selectbox('Select X-Axis for relation between education/employment and fertility', ['Educated Women(%)','Employed Women(%)'])
+selected_state = st.sidebar.selectbox('Select State', data['States/UTs'].unique())
+
+# Filter the data based on the selected state
+filtered_data = data[data['States/UTs'] == selected_state]
  
 
 # Streamlit app
@@ -29,7 +33,7 @@ x_axis_selection = st.sidebar.selectbox('Select X-Axis for relation between educ
 # Create a scatter plot to visualize the inverse relationship
 
 fig = px.scatter(
-    data,
+    filtered_data,
     x=x_axis_selection,
     y='Total Fertility Rate (number of children per woman)',
     color='States/UTs',
@@ -44,7 +48,7 @@ fig.update_layout(showlegend=True)
 st.subheader('Education Level vs Early Marriage/Motherhood')
 
 fig_grouped_bar = px.bar(
-    data.melt(id_vars=['States/UTs', 'AREA'], value_vars=['Educated Women(%)', 'Early Marriage Rate', 'Motherhood Rate']),
+    filtered_data.melt(id_vars=['States/UTs', 'AREA'], value_vars=['Educated Women(%)', 'Early Marriage Rate', 'Motherhood Rate']),
     x='States/UTs',
     y='value',
     color='variable',
