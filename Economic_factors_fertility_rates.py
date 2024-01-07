@@ -14,7 +14,7 @@ my_cur = my_cnx.cursor()
 # st.text(my_data_row)
 
 # Adding code to show relation between education and fertility
-my_cur.execute('select "States/UTs" ,AREA , "Women (age 15-49)  with 10 or more years of schooling (%)"  as "Educated Women(%)","Women (age 15-49 years) who worked in the last 12 months and were paid in cash (%)" as "Employed Women(%)", "Total Fertility Rate (number of children per woman)" from WOMEN_IN_DATA.HYPOTHESIS_1.NHFS ')
+my_cur.execute('select "States/UTs" ,AREA , "Women (age 15-49)  with 10 or more years of schooling (%)"  as "Educated Women(%)","Women (age 15-49 years) who worked in the last 12 months and were paid in cash (%)" as "Employed Women(%)", "Total Fertility Rate (number of children per woman)" , "Women age 20-24 years married before age 18 years (%)", "Women age 15-19 years who were already mothers or pregnant at the time of the survey (%)" from WOMEN_IN_DATA.HYPOTHESIS_1.NHFS ')
 
 result = my_cur.fetchall()
 
@@ -41,9 +41,7 @@ fig = px.scatter(
 fig.update_layout(showlegend=True)
 
 #Early Marriage and Motherhood Data Analysis
-st.title('Early Marriage and Motherhood Data Analysis')
-selected_state = st.selectbox('Select State/UT:', data['States/UTs'].unique())
-selected_area = st.selectbox('Select Area:', ['Rural', 'Urban', 'Total'])
+st.text('Early Marriage and Motherhood Data Analysis')
 
 # Filter data based on user selection
 filtered_data = data[(data['States/UTs'] == selected_state) & (data['AREA'] == selected_area)]
