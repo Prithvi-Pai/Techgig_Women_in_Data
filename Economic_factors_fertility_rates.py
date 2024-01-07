@@ -1,6 +1,7 @@
 import streamlit
 import snowflake.connector
 import plotly.express as px
+import pandas as pd
 
 streamlit.title('TechGig Women in Data')
 streamlit.header('Hypothesis on Economic Empowerment and Marital Status')
@@ -17,8 +18,8 @@ my_cur.execute('select "States/UTs" ,AREA , "Women (age 15-49)  with 10 or more 
 
 result = my_cur.fetchall()
 
-# data = streamlit.dataframe(result, columns=['"States/UTs"', 'AREA', '"Women (age 15-49)  with 10 or more years of schooling (%)"','"Total Fertility Rate (number of children per woman)"'])
-data = streamlit.dataframe(result)
+data = pd.dataframe(result, columns=['"States/UTs"', 'AREA', '"Women (age 15-49)  with 10 or more years of schooling (%)"','"Total Fertility Rate (number of children per woman)"'])
+#data = streamlit.dataframe(result)
  
 
 # Streamlit app
