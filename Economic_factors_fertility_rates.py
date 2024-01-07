@@ -20,6 +20,10 @@ result = my_cur.fetchall()
 
 data = pd.DataFrame(result, columns=['States/UTs', 'AREA', 'Educated Women(%)','Employed Women(%)','Total Fertility Rate (number of children per woman)','Early Marriage Rate', 'Motherhood Rate'])
 x_axis_selection = st.sidebar.selectbox('Select X-Axis for relation between education/employment and fertility', ['Educated Women(%)','Employed Women(%)'])
+# providing multi select option for state which is used to give data for 
+selected_states = st.sidebar.multiselect('Select States:', data['States/UTs'].unique())
+# Filter data based on selected states
+filtered_data = data[data['States/UTs'].isin(selected_states)]
 
 
 # Streamlit app
@@ -41,12 +45,7 @@ fig.update_layout(showlegend=True)
 
 # Create a bar chart for Early Marriage Rate vs Motherhood Rate
 
-# providing multi select option for state which is used to give data for 
 
-selected_states = st.sidebar.multiselect('Select States:', data['States/UTs'].unique())
-
-# Filter data based on selected states
-filtered_data = data[data['States/UTs'].isin(selected_states)]
 
 fig_grouped_bar = px.bar(
     filtered_data.melt(id_vars=['States/UTs', 'AREA'], value_vars=['Educated Women(%)', 'Early Marriage Rate', 'Motherhood Rate']),
