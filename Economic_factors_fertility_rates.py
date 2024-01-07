@@ -49,7 +49,7 @@ st.subheader('Education Level vs Early Marriage/Motherhood')
 
 fig_grouped_bar = px.bar(
     data.melt(id_vars=['States/UTs', 'AREA'], value_vars=['Educated Women(%)', 'Early Marriage Rate', 'Motherhood Rate']),
-    x='States/UTs',
+    x=selected_state,
     y='value',
     color='variable',
     facet_col='AREA',  # Facet by 'Area'
