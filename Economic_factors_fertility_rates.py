@@ -24,7 +24,7 @@ x_axis_selection = st.sidebar.selectbox('Select X-Axis', ['Educated Women(%)','E
  
 
 # Streamlit app
-st.text('Inverse Relationship between Education and Fertility')
+#st.text('Relationship between Education and Fertility')
 
 # Create a scatter plot to visualize the inverse relationship
 
@@ -34,7 +34,7 @@ fig = px.scatter(
     y='Total Fertility Rate (number of children per woman)',
     color='States/UTs',
     facet_col='AREA',  # Facet by 'Area'
-    title='Inverse Relationship between Education and Fertility',
+    title='Impact of Employment and Education in Women and Fertility',
     labels={'EducationLevel': 'Education Level', 'FertilityRate': 'Fertility Rate'},
 )
 # Customize the layout
