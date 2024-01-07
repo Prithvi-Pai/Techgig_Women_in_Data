@@ -32,7 +32,7 @@ fig = px.scatter(
     x='"Women (age 15-49)  with 10 or more years of schooling (%)"',
     y='"Total Fertility Rate (number of children per woman)"',
     color='"States/UTs"',
-    facet_col='Area',  # Facet by 'Area'
+    facet_col='AREA',  # Facet by 'Area'
     title='Inverse Relationship between Education and Fertility',
     labels={'EducationLevel': 'Education Level', 'FertilityRate': 'Fertility Rate'},
 )
