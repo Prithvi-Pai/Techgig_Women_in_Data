@@ -50,8 +50,7 @@ fig.update_layout(showlegend=True)
 # Create a bar chart for Early Marriage Rate vs Motherhood Rate
 
 
-
- fig_grouped_bar = px.bar(
+fig_grouped_bar = px.bar(
     filtered_data.melt(id_vars=['States/UTs', 'AREA'], value_vars=['Educated Women(%)', 'Early Marriage Rate', 'Motherhood Rate']),
     x='States/UTs',
     y='value',
