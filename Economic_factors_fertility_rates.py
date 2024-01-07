@@ -14,11 +14,11 @@ my_cur = my_cnx.cursor()
 # st.text(my_data_row)
 
 # Adding code to show relation between education and fertility
-my_cur.execute('select "States/UTs" ,AREA , "Women (age 15-49)  with 10 or more years of schooling (%)" ,"Total Fertility Rate (number of children per woman)" from WOMEN_IN_DATA.HYPOTHESIS_1.NHFS ')
+my_cur.execute('select "States/UTs" ,AREA , "Women (age 15-49)  with 10 or more years of schooling (%)"  as "Educated Women","Total Fertility Rate (number of children per woman)" from WOMEN_IN_DATA.HYPOTHESIS_1.NHFS ')
 
 result = my_cur.fetchall()
 
-data = pd.DataFrame(result, columns=['"States/UTs"', 'AREA', '"Women (age 15-49)  with 10 or more years of schooling (%)"','"Total Fertility Rate (number of children per woman)"'])
+data = pd.DataFrame(result, columns=['"States/UTs"', 'AREA', '"Educated Women"','"Total Fertility Rate (number of children per woman)"'])
 #data = st.dataframe(result)
  
 
