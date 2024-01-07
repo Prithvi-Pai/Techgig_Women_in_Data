@@ -1,4 +1,4 @@
-import streamlit
+import streamlit as st
 import snowflake.connector
 import plotly.express as px
 import pandas as pd
@@ -19,11 +19,11 @@ my_cur.execute('select "States/UTs" ,AREA , "Women (age 15-49)  with 10 or more 
 result = my_cur.fetchall()
 
 data = pd.DataFrame(result, columns=['"States/UTs"', 'AREA', '"Women (age 15-49)  with 10 or more years of schooling (%)"','"Total Fertility Rate (number of children per woman)"'])
-#data = streamlit.dataframe(result)
+#data = st.dataframe(result)
  
 
 # Streamlit app
-streamlit.title('Inverse Relationship between Education and Fertility')
+st.title('Inverse Relationship between Education and Fertility')
 
 # Create a scatter plot to visualize the inverse relationship
 
