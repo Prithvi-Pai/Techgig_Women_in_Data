@@ -4,7 +4,7 @@ import plotly.express as px
 import pandas as pd
 
 st.title('TechGig Women in Data')
-st.header('Hypothesis on Economic Empowerment and Marital Status')
+st.header('Hypothesis on Economic Empowerment , Education and Fertility rates')
 
 my_cnx = snowflake.connector.connect(**st.secrets["snowflake"])
 my_cur = my_cnx.cursor()
