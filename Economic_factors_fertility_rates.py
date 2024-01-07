@@ -3,15 +3,15 @@ import snowflake.connector
 import plotly.express as px
 import pandas as pd
 
-streamlit.title('TechGig Women in Data')
-streamlit.header('Hypothesis on Economic Empowerment and Marital Status')
+st.title('TechGig Women in Data')
+st.header('Hypothesis on Economic Empowerment and Marital Status')
 
-my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
+my_cnx = snowflake.connector.connect(**st.secrets["snowflake"])
 my_cur = my_cnx.cursor()
 # my_cur.execute("SELECT CURRENT_USER(), CURRENT_ACCOUNT(), CURRENT_REGION()")
 # my_data_row = my_cur.fetchone()
-# streamlit.text("Hello from Snowflake:")
-# streamlit.text(my_data_row)
+# st.text("Hello from Snowflake:")
+# st.text(my_data_row)
 
 # Adding code to show relation between education and fertility
 my_cur.execute('select "States/UTs" ,AREA , "Women (age 15-49)  with 10 or more years of schooling (%)" ,"Total Fertility Rate (number of children per woman)" from WOMEN_IN_DATA.HYPOTHESIS_1.NHFS ')
