@@ -40,13 +40,23 @@ fig = px.scatter(
 # Customize the layout
 fig.update_layout(showlegend=True)
 
+# Create a bar chart for Early Marriage Rate vs Motherhood Rate
 st.subheader('Education Level vs Early Marriage/Motherhood')
-fig_education = px.bar(data, x='States/UTs', y=['Early Marriage Rate', 'Motherhood Rate'], text=['Early Marriage Rate', 'Motherhood Rate'])
 
+fig_bar = px.bar(
+    data,
+    x='States/UTs',
+    y=['Early Marriage Rate', 'Motherhood Rate'],
+    color='States/UTs',
+    facet_col='AREA',  # Facet by 'Area'
+    title='Early Marriage Rate vs Motherhood Rate in Different States/UTs and Areas',
+)
+# Customize the layout
+fig_bar.update_layout(showlegend=True)
 
 # Show the plot in the Streamlit app
 st.plotly_chart(fig)
-st.plotly_chart(fig_education)
+st.plotly_chart(fig_bar)
 
 # Close the Snowflake connection
 my_cnx.close()
