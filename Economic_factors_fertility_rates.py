@@ -18,9 +18,9 @@ my_cur.execute('select "States/UTs" ,AREA , "Women (age 15-49)  with 10 or more 
 
 result = my_cur.fetchall()
 
-data = pd.DataFrame(result, columns=['"States/UTs"', 'AREA', '"Educated Women(%)"','"Employed Women(%)"','"Total Fertility Rate (number of children per woman)"'])
+data = pd.DataFrame(result, columns=['States/UTs', 'AREA', 'Educated Women(%)','Employed Women(%)','Total Fertility Rate (number of children per woman)'])
 #data = st.dataframe(result)
-x_axis_selection = st.sidebar.selectbox('Select X-Axis', ['"Educated Women(%)"','"Employed Women(%)"'])
+x_axis_selection = st.sidebar.selectbox('Select X-Axis', ['Educated Women(%)','Employed Women(%)'])
  
 
 # Streamlit app
@@ -31,8 +31,8 @@ st.title('Inverse Relationship between Education and Fertility')
 fig = px.scatter(
     data,
     x=x_axis_selection,
-    y='"Total Fertility Rate (number of children per woman)"',
-    color='"States/UTs"',
+    y='Total Fertility Rate (number of children per woman)',
+    color='States/UTs',
     facet_col='AREA',  # Facet by 'Area'
     title='Inverse Relationship between Education and Fertility',
     labels={'EducationLevel': 'Education Level', 'FertilityRate': 'Fertility Rate'},
