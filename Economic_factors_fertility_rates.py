@@ -24,7 +24,7 @@ x_axis_selection = st.sidebar.selectbox('Select X-Axis', ['Educated Women(%)','E
  
 
 # Streamlit app
-st.title('Inverse Relationship between Education and Fertility')
+st.text('Inverse Relationship between Education and Fertility')
 
 # Create a scatter plot to visualize the inverse relationship
 
