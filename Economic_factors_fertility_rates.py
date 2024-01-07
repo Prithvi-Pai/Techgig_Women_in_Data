@@ -13,10 +13,7 @@ my_cur = my_cnx.cursor()
 # streamlit.text(my_data_row)
 
 # Adding code to show relation between education and fertility
-my_cur.execute('select "States/UTs",AREA ,  
-"Women (age 15-49)  with 10 or more years of schooling (%)" , 
-"Total Fertility Rate (number of children per woman)"
-from NHFS ' )
+my_cur.execute("select "States/UTs",AREA , "Women (age 15-49)  with 10 or more years of schooling (%)" ,"Total Fertility Rate (number of children per woman)" from NHFS ")
 
 result = my_cur.fetchall()
 
