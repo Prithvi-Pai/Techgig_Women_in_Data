@@ -13,14 +13,14 @@ my_cur = my_cnx.cursor()
 # st.text("Hello from Snowflake:")
 # st.text(my_data_row)
 
-# Adding code to show relation between education and fertility
+# Adding code to show relation between education/employment and fertility
 my_cur.execute('select "States/UTs" ,AREA , "Women (age 15-49)  with 10 or more years of schooling (%)"  as "Educated Women(%)","Women (age 15-49 years) who worked in the last 12 months and were paid in cash (%)" as "Employed Women(%)", "Total Fertility Rate (number of children per woman)" , "Women age 20-24 years married before age 18 years (%)" as "Early Marriage Rate", "Women age 15-19 years who were already mothers or pregnant at the time of the survey (%)" as "Motherhood Rate" from WOMEN_IN_DATA.HYPOTHESIS_1.NHFS ')
 
 result = my_cur.fetchall()
 
 data = pd.DataFrame(result, columns=['States/UTs', 'AREA', 'Educated Women(%)','Employed Women(%)','Total Fertility Rate (number of children per woman)','Early Marriage Rate', 'Motherhood Rate'])
 #data = st.dataframe(result)
-x_axis_selection = st.sidebar.selectbox('Select X-Axis', ['Educated Women(%)','Employed Women(%)'])
+x_axis_selection = st.sidebar.selectbox('Select X-Axis', ['Educated Women(%)','Employed Women(%)'],'for relation between education/employment and fertility')
  
 
 # Streamlit app
