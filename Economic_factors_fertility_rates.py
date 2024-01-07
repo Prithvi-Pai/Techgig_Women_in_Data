@@ -52,7 +52,7 @@ fig_grouped_bar = None
 
 # Check if selected_states is not empty before entering the loop
 if selected_states:
-fig_grouped_bar = px.bar(
+ fig_grouped_bar = px.bar(
     filtered_data.melt(id_vars=['States/UTs', 'AREA'], value_vars=['Educated Women(%)', 'Early Marriage Rate', 'Motherhood Rate']),
     x='States/UTs',
     y='value',
@@ -70,7 +70,7 @@ fig_grouped_bar.update_layout(showlegend=True)
 # Show the plot in the Streamlit app
 st.plotly_chart(fig)
 if fig_grouped_bar:
-st.plotly_chart(fig_grouped_bar)
+ st.plotly_chart(fig_grouped_bar)
 
 # Close the Snowflake connection
 my_cnx.close()
