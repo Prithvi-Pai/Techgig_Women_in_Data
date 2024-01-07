@@ -20,7 +20,7 @@ result = my_cur.fetchall()
 
 data = pd.DataFrame(result, columns=['"States/UTs"', 'AREA', '"Educated Women(%)"','"Employed Women(%)"','"Total Fertility Rate (number of children per woman)"'])
 #data = st.dataframe(result)
-x_axis_selection = st.sidebar.selectbox('Select X-Axis', ['"Educated Women(%)"','"Employed Women(%)"])
+x_axis_selection = st.sidebar.selectbox('Select X-Axis', ['"Educated Women(%)"','"Employed Women(%)"'])
  
 
 # Streamlit app
