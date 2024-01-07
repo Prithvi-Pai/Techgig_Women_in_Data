@@ -1,3 +1,4 @@
 #requirements.txt
 snowflake-connector-python
 streamlit==1.25.0
+plotly==5.3.1
