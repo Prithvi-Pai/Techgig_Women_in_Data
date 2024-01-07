@@ -20,7 +20,8 @@ result = my_cur.fetchall()
 
 data = pd.DataFrame(result, columns=['States/UTs', 'AREA', 'Educated Women(%)','Employed Women(%)','Total Fertility Rate (number of children per woman)','Early Marriage Rate', 'Motherhood Rate'])
 x_axis_selection = st.sidebar.selectbox('Select X-Axis for relation between education/employment and fertility', ['Educated Women(%)','Employed Women(%)'])
-selected_states = st.sidebar.multiselect('Select State', data['States/UTs'].unique())
+state_list = data.set_index('States/UTs')
+selected_states = st.sidebar.multiselect('Select State', list(state_list.index))
 
 # Filter the data based on the selected state
 #filtered_data = data[data['States/UTs'] == selected_state]
