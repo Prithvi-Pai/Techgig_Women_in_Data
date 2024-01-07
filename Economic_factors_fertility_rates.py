@@ -18,7 +18,7 @@ my_cur.execute('select "States/UTs" ,AREA , "Women (age 15-49)  with 10 or more 
 result = my_cur.fetchall()
 
 # data = streamlit.dataframe(result, columns=['"States/UTs"', 'AREA', '"Women (age 15-49)  with 10 or more years of schooling (%)"','"Total Fertility Rate (number of children per woman)"'])
-data = streamlit.dataframe(result)
+data = streamlit.dataframe.dropna(result)
 
 # Streamlit app
 streamlit.title('Inverse Relationship between Education and Fertility')
