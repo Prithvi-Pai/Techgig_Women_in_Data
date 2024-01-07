@@ -46,8 +46,12 @@ fig = px.scatter(
 )
 # Customize the layout
 fig.update_layout(showlegend=True)
+# Show the plot in the Streamlit app
+st.plotly_chart(fig)
 
 # Create a bar chart for Early Marriage Rate vs Motherhood Rate
+# Add a subheader for the second grouped chart
+st.subheader('Hypothesis on Economic empowerment and martial status')
 
 
 fig_grouped_bar = px.bar(
@@ -66,7 +70,6 @@ fig_grouped_bar.update_layout(showlegend=True)
 fig_grouped_bar.update_layout(showlegend=True)
 
 # Show the plot in the Streamlit app
-st.plotly_chart(fig)
 st.plotly_chart(fig_grouped_bar)
 
 # Close the Snowflake connection
