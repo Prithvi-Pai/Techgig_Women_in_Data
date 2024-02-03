@@ -3,6 +3,7 @@ import snowflake.connector
 import plotly.express as px
 import pandas as pd
 
+
 st.title('TechGig Women in Data')
 st.subheader('Hypothesis on Economic factors and Fertility rates')
 
